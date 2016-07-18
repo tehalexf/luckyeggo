@@ -264,7 +264,6 @@ function runAll() {
 
 
 		if(!ret["evoTransfers"]) {
-
 				if(ret["pureEvos"] + ret["transferEvos"]) {
 					totalEvolutions += ret["pureEvos"] + ret["transferEvos"];
 					origExp += 500 * (ret["pureEvos"] + ret["transferEvos"]);
@@ -272,15 +271,12 @@ function runAll() {
 					postEggActionList.push(generateEvolveString(ret["pureEvos"] + ret["transferEvos"], name));
 
 				}
-
 		} else {
-
 				if(ret["pureEvos"]) {
 					totalEvolutions += ret["pureEvos"];
-					origExp += 500;
+					origExp += 500 * ret["pureEvos"];
 					timeNeeded += 0.25 * ret["pureEvos"];
 					postEggActionList.push(generateEvolveString(ret["pureEvos"], name));
-
 				}
 
 
@@ -292,7 +288,7 @@ function runAll() {
 
 				if(ret["transferEvos"]) {
 					totalEvolutions += ret["transferEvos"];
-					origExp += 500;
+					origExp += 500 * ret["transferEvos"];
 					timeNeeded += 0.25 * ret["transferEvos"];
 					postEggActionList.push(generateEvolveString(ret["transferEvos"], name));
 				}
