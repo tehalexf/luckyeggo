@@ -1,75 +1,81 @@
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-      <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="calc.js"></script>
-      <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-   </head>
-   <body>
-      <div class="section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud </p>
-               </div>
-               <div class="col-md-6">
-                  <h1>A title</h1>
-                  <h3>A subtitle</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.</p>
-               </div>
-            </div>
-         </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="calc.js"></script>
+  <title>LuckyEggo</title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="logo.png" height="64">
+          <p></p>
+          <p>LuckyEggo helps you lorem ipsum,
+            <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+            <br>Ut enim ad minim veniam, quis nostrud</p>
+        </div>
+        <div class="col-md-6">
+          <h1>Total XP: <span class="totalxp"></span></h1>
+          <p class="line1">please</p>
+          <p class="line2">put</p>
+          <p class="line3">stuff</p>
+          <p class="line4">in</p>
+          <p class="line5">here</p>
+        </div>
       </div>
-      <div class="section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud </p>
-               </div>
-            </div>
-         </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Pokemon</th>
+                <th># in Inventory</th>
+                <th>Candies Owned</th>
+                <th>Have Evolved?</th>
+                <th>Recycle Evolved?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pikachu</td>
+                <td>69</td>
+                <td>420</td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td><input type="text" placeholder="Pokemon"></td>
+                <td><input type="text" placeholder="Number in Inventory"></td>
+                <td><input type="text" placeholder="Candies Owned"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Another </button>
+
+        </div>
       </div>
-      <div class="section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <table class="table">
-                     <thead>
-                        <tr>
-                           <th>#</th>
-                           <th>First Name</th>
-                           <th>Last Name</th>
-                           <th>Username</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td>1</td>
-                           <td>Mark</td>
-                           <td>Otto</td>
-                           <td>@mdo</td>
-                        </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>Jacob</td>
-                           <td>Thornton</td>
-                           <td>@fat</td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>Larry</td>
-                           <td>the Bird</td>
-                           <td>@twitter</td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
-         </div>
-      </div>
-   </body>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
+    </div>
+  </footer>
+
+</body>
+
 </html>
