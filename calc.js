@@ -8,6 +8,80 @@ String.prototype.toProperCase = function () {
 };
 
 
+var pokeEvo = {
+	"abra" :"Kadabras", 
+	"bellsprout" :"Weepinbells", 
+	"bulbasaur" :"Ivysaurs", 
+	"caterpie" :"Metapods", 
+	"charmander" :"Charmeleons", 
+	"charmeleon" :"Charmanders", 
+	"clefairy" :"Clefables", 
+	"cubone" :"Marowaks", 
+	"diglett" : "Dugtrios", 
+	"doduo" :"Dodrios", 
+	"dragonair" :"Dragonites", 
+	"dratini" :"Dragonairs", 
+	"drowzee" :"Hypnos", 
+	"eevee" :"Eevee evolved forms", 
+	"ekans" :"Arboks", 
+	"exeggcute" :"Exeggutors", 
+	"gastly" :"Haunters", 
+	"geodude" :"Gravelers", 
+	"gloom" :"Vileplumes", 
+	"goldeen" :"Seakings", 
+	"graveler" :"Golems", 
+	"grimer" :"Mucks", 
+	"growlithe" :"Growlites", 
+	"haunter" :100, 
+	"horsea" :50, 
+	"ivysaur" :100, 
+	"jigglypuff" :50, 
+	"kabuto" :50, 
+	"kadabra" :100, 
+	"kakuna" :50, 
+	"koffing" :50, 
+	"krabby" :50, 
+	"machoke" :100, 
+	"machop" :25, 
+	"magikarp" :400, 
+	"magnemite" :50, 
+	"mankey" :50, 
+	"meowth" :50, 
+	"metapod" :50, 
+	"nidoran♀" :25, 
+	"nidoran♂" :25, 
+	"nidorina" :100, 
+	"nidorino" :100, 
+	"oddish" :25, 
+	"omanyte" :50, 
+	"paras" :50, 
+	"pidgeotto" :50, 
+	"pidgey" :12, 
+	"pikachu" :50, 
+	"poliwag" :25, 
+	"poliwhirl" :100, 
+	"ponyta" :50, 
+	"psyduck" :50, 
+	"rattata" :25, 
+	"rhyhorn" :50, 
+	"sandshrew" :"Sandslash", 
+	"seel" :"Dewongs", 
+	"shellder" :"Cloysters", 
+	"slowpoke" :"Slowbrows", 
+	"spearow" :"Fearows", 
+	"squirtle" :"Wartortles", 
+	"staryu" :"Starmes", 
+	"tentacool" :"Tentacruels", 
+	"venonat" :"Venomoths", 
+	"voltorb" :"Electrodes", 
+	"vulpix" :"Ninetaless", 
+	"wartortle" :"Blastoises", 
+	"weedle" : "Kakunas", 
+	"weepinbell" :"Victreebels", 
+	"zubat" :"Golbats"
+}
+
+
 var pokeDict = {
 	"abra" :25, 
 	"bellsprout" :25, 
@@ -80,7 +154,6 @@ var pokeDict = {
 	"weepinbell" :100, 
 	"zubat" :50
 }
-
 
 function generateTransferString(num, pok) {
 	return "Transfer <b>" + num + " " + pok + "<b> to Willow." 
