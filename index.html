@@ -4,80 +4,111 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script type="text/javascript" src="calc.js"></script>
   
   <title>LuckyEggo</title>
   <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-orange.min.css">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/x-icon" href="logo_egg.png">
 </head>
 
 <body>
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="logo.png" height="64">
-          <p></p>
-          <p>LuckyEggo helps you lorem ipsum,
-            <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
-            <br>Ut enim ad minim veniam, quis nostrud</p>
-        </div>
-        <div class="col-md-6">
-          <h1>Total XP: <span class="totalxp"></span></h1>
-          <p class="line1">please</p>
-          <p class="line2">put</p>
-          <p class="line3">stuff</p>
-          <p class="line4">in</p>
-          <p class="line5">here</p>
-        </div>
+  <main class="mdl-layout__content">
+    <div class="mdl-layout-spacer"></div>
+
+    <div class="mdl-grid">
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-cell mdl-cell--4-col">
+        <h1><img src="logo.png" height="64"></h1>
+        <p></p>
+        <p>LuckyEggo helps you lorem ipsum,
+          <br>sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+          <br>Ut enim ad minim veniam, quis nostrud</p>
+        <ul>
+          <li>bullet point</li>
+        </ul>
       </div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table">
+
+      <div class="mdl-cell mdl-cell--4-col">
+        <h1>Total XP: <span class="totalxp"></span></h1>
+        <p class="line1">please</p>
+        <p class="line2">put</p>
+        <p class="line3">stuff</p>
+        <p class="line4">in</p>
+        <p class="line5">here</p>
+      </div>
+
+
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
             <thead>
               <tr>
-                <th>Pokemon</th>
-                <th># in Inventory</th>
-                <th>Candies Owned</th>
-                <th>Have Evolved?</th>
-                <th>Recycle Evolved?</th>
+                <div class="mdl-tooltip mdl-tooltip-top" for="i">The name of your Pokemon. Used to look up and calculate values.</div>
+                <div class="mdl-tooltip mdl-tooltip-top" for="n">The number of Pokemon you currently have in your inventory.</div>
+                <div class="mdl-tooltip mdl-tooltip-top" for="c">The number of candies you own for that Pokemon.</div>
+                <div class="mdl-tooltip mdl-tooltip-top" for="e">If you have evolved Pokemon, leave this on.</div>
+                <div class="mdl-tooltip mdl-tooltip-top" for="r">Use the evolved Pokemon as a source of more candy.</div>
               </tr>
             </thead>
             <tbody id="rowBody">
               <tr>
-                <td>Pikachu</td>
-                <td>69</td>
-                <td>420</td>
-                <td><input type="checkbox"></td>
-                <td><input type="checkbox"></td>
-              </tr>
-              <tr id="input-1" class="tableRow">
-                <td><input id="firstPokemon" type="text" value="Pidgey" placeholder="Pokemon"></td>
-                <td><input type="number" placeholder="Pokemon in Inventory"></td>
-                <td><input type="number" placeholder="Candies Owned"></td>
-                <td><input type="checkbox"></td>
-                <td><input type="checkbox"></td>
+                <td id="i">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="i1">
+                    <label class="mdl-textfield__label" for="i1">Pokemon</label>
+                  </div>
+                </td>
+                <td id="n">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="n1">
+                    <label class="mdl-textfield__label" for="n1">Number of Pokemon</label><span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+                </td>
+                <td id="c">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="c1">
+                    <label class="mdl-textfield__label" for="c1">Candies Owned</label><span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+                </td>
+                <td id="e">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="e1">
+                    <input type="checkbox" id="e1" class="mdl-switch__input" checked>
+                    <span class="mdl-switch__label">&nbsp;Have Evolved?&nbsp;</span>
+                  </label>
+                </td>
+                <td id="r">
+                  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="r1">
+                    <input type="checkbox" id="r1" class="mdl-switch__input" checked>
+                    <span class="mdl-switch__label">&nbsp;Recycle Evolved?&nbsp;</span>
+                  </label>
+                </td>
               </tr>
             </tbody>
           </table>
-          <button id="addRow" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Another</button>
-
+          <br>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"><i class="material-icons">add</i> Add Another</button>
         </div>
       </div>
     </div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <p class="text-muted">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
+    <div class="mdl-grid">
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-cell mdl-cell--6-col">
+        <p>Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
+      </div>
+      <div class="mdl-layout-spacer"></div>
     </div>
-  </footer>
+    <div class="mdl-layout-spacer"></div>
+
+  </main>
+
+
 
 </body>
 
