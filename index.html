@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script type="text/javascript" src="calc.js"></script>
+  
   <title>LuckyEggo</title>
   <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -47,7 +50,7 @@
                 <th>Recycle Evolved?</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="rowBody">
               <tr>
                 <td>Pikachu</td>
                 <td>69</td>
@@ -55,16 +58,16 @@
                 <td><input type="checkbox"></td>
                 <td><input type="checkbox"></td>
               </tr>
-              <tr>
-                <td><input type="text" placeholder="Pokemon"></td>
-                <td><input type="text" placeholder="Number in Inventory"></td>
-                <td><input type="text" placeholder="Candies Owned"></td>
+              <tr id="input-1" class="tableRow">
+                <td><input id="firstPokemon" type="text" value="Pidgey" placeholder="Pokemon"></td>
+                <td><input type="number" placeholder="Pokemon in Inventory"></td>
+                <td><input type="number" placeholder="Candies Owned"></td>
                 <td><input type="checkbox"></td>
                 <td><input type="checkbox"></td>
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Another</button>
+          <button id="addRow" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Another</button>
 
         </div>
       </div>

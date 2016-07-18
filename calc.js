@@ -3,7 +3,9 @@
 
 
 
-
+String.prototype.toProperCase = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
 
 
 var pokeDict = {
@@ -79,6 +81,15 @@ var pokeDict = {
 	"zubat" :50
 }
 
+
+function generateTransferString(num, pok) {
+	return "Transfer <b>" + num + " " + pok + "<b> to Willow." 
+}
+
+function generateTransferString2(num, pok) {
+	return "Transfer <b>" + num + " " + pok + "<b> to Willow." 
+}
+
 // Error codes:
 // -1: Invalid pokemon name
 
@@ -111,9 +122,7 @@ function processRow(name, count, candies, hasEvo, recycle) {
 			}
 
 		}
-	
 		transferEvoUsingCandy = i - 1;
-
 	}
 
 	var totalTransfersRequired = 0;
@@ -142,7 +151,7 @@ function processRow(name, count, candies, hasEvo, recycle) {
 	}
 
 	var pokeDexReward = totalTransfersRequired > 0 ? 1 : 0;
-	
+
 	return {"evoTransfers": evoTransfersRequired , "origTransfers":origTransfersRequired, "hasReward":pokeDexReward, "pureEvos": pureEvoLimitedByNumberOfPokemon, "transferEvos": transferEvoUsingCandy}
 	// console.log(totalTransfersRequired)
 	// console.log("Evo transfers")
@@ -150,3 +159,66 @@ function processRow(name, count, candies, hasEvo, recycle) {
 	// console.log("orig transgers")
 	// console.log(origTransfersRequired)
 }
+
+
+function runAll() {
+	console.log($("#firstPokemon").val());
+	// $('.tableRow').each(function(i, obj) {
+ //  		console.log($(obj).find("input:eq(2)").val());
+	// });
+
+}
+
+
+var pokeList = Array();
+for (var a in pokeDict) {
+	pokeList.push(a.toProperCase());
+}
+var counter = 2;
+
+$( document ).ready(function() {
+	$("#firstPokemon").bind('input', function() { 
+		// console.log("AAAA");
+		var self = this;
+	    if (self.timer)
+	        clearTimeout(self.timer);
+
+	    self.timer = setTimeout(function ()
+	    {
+	        self.timer = null;
+	        runAll();
+	    }, 500);
+    	// throttle(runAll, 500);
+	});
+
+	// $('#input-1').keypress( _.debounce( function(){
+	// 	runAll();
+	// }, 500 ) );
+
+  	$("#firstPokemon" ).autocomplete({
+  		source: pokeList,
+		select: function (event, ui) {
+		    return false;
+		},
+
+		select: function (event, ui) {
+		    $(this).val(ui.item ? ui.item : " ");
+		},
+
+		change: function (event, ui) {
+		    if (!ui.item) {
+		        this.value = '';}
+		}
+
+	});
+
+  	$( "#addRow" ).click(function() {
+  		console.log("AAAAA")
+  		var a = $("#input-1").clone().attr("id", "input-" + counter++);
+  		$("#rowBody").append(a);
+	});
+
+});
+
+
+
