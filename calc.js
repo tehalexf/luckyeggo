@@ -78,7 +78,7 @@ var pokeEvo = {
 	"wartortle" :"Blastoise", 
 	"weedle" : "Kakuna", 
 	"weepinbell" :"Victreebel", 
-	"zubat" :"Golbats"
+	"zubat" :"Golbat"
 }
 
 
