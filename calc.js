@@ -305,7 +305,7 @@ function runAll() {
 	});
 	$("#instructions").removeClass("hidden");
 
-	$("#instlist").html(($.parseHTML( setupActionList.join("") + "<li>Activate <b>LUCKY EGGO</b>.</li>"  +  postEggActionList.join("") )));
+	$("#instlist").html(($.parseHTML( setupActionList.join("") + "<li>Activate <b>LUCKY EGGO</b>.</li>"  +  postEggActionList.join("") +  "<li>ENJOY YOUR <b>" +origExp * 2 + "EXP!</b></li>")));
 	$("#totxp").html(origExp * 2)
 	$("#xpw").html(origExp)
 	$("#time").html(timeNeeded)
@@ -320,11 +320,56 @@ for (var a in pokeDict) {
 }
 var counter = 2;
 
+function addRow() {
+	  		var a = $("#input-1").clone().attr("id", "input-" + counter);
+  		$(a).find("input:eq(0)").val("").attr("id", "pok-" + counter);
+  		$(a).find("input:eq(1)").val("");
+  		$(a).find("input:eq(2)").val("");
+  		$("#rowBody").append(a);
+
+		$("#pok-" + counter).bind('input', function() { 
+			// console.log("AAAA");
+			var self = this;
+		    if (self.timer)
+		        clearTimeout(self.timer);
+
+		    self.timer = setTimeout(function ()
+		    {
+		        self.timer = null;
+		        runAll();
+		    }, 500);
+	    	// throttle(runAll, 500);
+		});
+
+
+	  	$("#pok-" + counter++ ).autocomplete({
+	  		source: pokeList,
+			select: function (event, ui) {
+			    return false;
+			},
+
+			select: function (event, ui) {
+			    $(this).val(ui.item ? ui.item : " ");
+			},
+
+			change: function (event, ui) {
+			    if (!ui.item) {
+			        this.value = '';}
+			}
+		});
+}
 $( document ).ready(function() {
 	$("#runProgram").click(function() { 
 		runAll();
 	});
 
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
 	// $('#input-1').keypress( _.debounce( function(){
 	// 	runAll();
 	// }, 500 ) );
@@ -365,42 +410,7 @@ $( document ).ready(function() {
 
   	$( "#addRow" ).click(function() {
   			
-  		var a = $("#input-1").clone().attr("id", "input-" + counter);
-  		$(a).find("input:eq(0)").val("").attr("id", "pok-" + counter);
-  		$(a).find("input:eq(1)").val("");
-  		$(a).find("input:eq(2)").val("");
-  		$("#rowBody").append(a);
-
-		$("#pok-" + counter).bind('input', function() { 
-			// console.log("AAAA");
-			var self = this;
-		    if (self.timer)
-		        clearTimeout(self.timer);
-
-		    self.timer = setTimeout(function ()
-		    {
-		        self.timer = null;
-		        runAll();
-		    }, 500);
-	    	// throttle(runAll, 500);
-		});
-
-
-	  	$("#pok-" + counter++ ).autocomplete({
-	  		source: pokeList,
-			select: function (event, ui) {
-			    return false;
-			},
-
-			select: function (event, ui) {
-			    $(this).val(ui.item ? ui.item : " ");
-			},
-
-			change: function (event, ui) {
-			    if (!ui.item) {
-			        this.value = '';}
-			}
-		});
+  		addRow();
 	});
 
 });
