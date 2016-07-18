@@ -1,3 +1,15 @@
 body {
   background-color: #fff8e1;
 }
+
+table {
+  max-width: 700px;
+}
+
+#rowBody td {
+  max-width: 300px !important;
+}
+
+.mdl-layout__content {
+  width: 100%;
+}
