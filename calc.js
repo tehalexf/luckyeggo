@@ -301,7 +301,7 @@ function runAll() {
 	});
 	$("#instructions").removeClass("hidden");
 
-	$("#instlist").html(($.parseHTML( setupActionList.join("") + "<li>Activate <b>LUCKY EGGO</b>.</li>"  +  postEggActionList.join("") +  "<li>ENJOY YOUR <b>" +origExp * 2 + "EXP!</b></li>")));
+	$("#instlist").html(($.parseHTML( setupActionList.join("") + "<li>Activate <b>LUCKY EGGO</b>.</li>"  +  postEggActionList.join("") +  "<li>ENJOY YOUR <b>" +origExp * 2 + " EXP!</b></li>")));
 	$("#totxp").html(origExp * 2)
 	$("#xpw").html(origExp)
 	$("#time").html(timeNeeded)
