@@ -339,7 +339,7 @@ function addRow() {
 
 
 	  	$("#pok-" + counter++ ).autocomplete({
-	  		source: pokeList,
+	  		source: pokeList /*,
 			select: function (event, ui) {
 			    return false;
 			},
@@ -351,7 +351,7 @@ function addRow() {
 			change: function (event, ui) {
 			    if (!ui.item) {
 			        this.value = '';}
-			}
+			} */
 		});
 }
 $( document ).ready(function() {
@@ -371,24 +371,26 @@ $( document ).ready(function() {
 	// }, 500 ) );
 
   	$("#pok-0" ).autocomplete({
-  		source: pokeList,
-		select: function (event, ui) {
-		    return false;
-		},
+  		source: pokeList
+  		// ,
+		// select: function (event, ui) {
+		    //return false;
+		// },
 
-		select: function (event, ui) {
-		    $(this).val(ui.item ? ui.item : " ");
-		},
+		// select: function (event, ui) {
+		    //$(this).val(ui.item ? ui.item : " ");
+		// },
 
-		change: function (event, ui) {
-		    if (!ui.item) {
-		        this.value = '';}
-		}
+		// change: function (event, ui) {
+		    //if (!ui.item) {
+		        // this.value = '';}
+		// }
 
 	});
 
   	$("#pok-1" ).autocomplete({
-  		source: pokeList,
+  		source: pokeList /*,
+  		
 		select: function (event, ui) {
 		    return false;
 		},
@@ -400,7 +402,7 @@ $( document ).ready(function() {
 		change: function (event, ui) {
 		    if (!ui.item) {
 		        this.value = '';}
-		}
+		}*/
 
 	});
 
