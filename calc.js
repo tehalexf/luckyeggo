@@ -358,16 +358,18 @@ $( document ).ready(function() {
 	$("#runProgram").click(function() { 
 		runAll();
 	});
-	$('[data-toggle="tooltip"]').tooltip();
-	
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
 
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	$('[data-toggle="tooltip"]').tooltip( {
+		template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+		placement: 'top'
+	});
 
 	// $('#input-1').keypress( _.debounce( function(){
 	// 	runAll();
