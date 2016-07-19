@@ -6,10 +6,11 @@ table {
   max-width: 700px;
 }
 
-#rowBody td {
-  max-width: 300px !important;
+label.btn.btn-danger.check.active{
+  background-color: green;
+  border-color: green;
 }
 
-.mdl-layout__content {
-  width: 100%;
+.btn-block {
+  max-width: 130px;
 }
