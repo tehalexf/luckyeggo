@@ -358,14 +358,17 @@ $( document ).ready(function() {
 	$("#runProgram").click(function() { 
 		runAll();
 	});
+	$('[data-toggle="tooltip"]').tooltip();
+	
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
+	addRow();
 
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
+
 	// $('#input-1').keypress( _.debounce( function(){
 	// 	runAll();
 	// }, 500 ) );
