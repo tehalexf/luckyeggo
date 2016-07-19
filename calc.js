@@ -339,19 +339,7 @@ function addRow() {
 
 
 	  	$("#pok-" + counter++ ).autocomplete({
-	  		source: pokeList /*,
-			select: function (event, ui) {
-			    return false;
-			},
-
-			select: function (event, ui) {
-			    $(this).val(ui.item ? ui.item : " ");
-			},
-
-			change: function (event, ui) {
-			    if (!ui.item) {
-			        this.value = '';}
-			} */
+	  		source: pokeList 
 		});
 }
 $( document ).ready(function() {
@@ -367,13 +355,32 @@ $( document ).ready(function() {
 	addRow();
 	addRow();
 	$('[data-toggle="tooltip"]').tooltip( {
-		template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-		placement: 'top'
 	});
+
+
+
 
 	// $('#input-1').keypress( _.debounce( function(){
 	// 	runAll();
 	// }, 500 ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   	$("#pok-0" ).autocomplete({
   		source: pokeList
