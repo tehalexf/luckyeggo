@@ -49,23 +49,17 @@
         <div class="col-md-6">
           <h1><img src="logo.png" height="64"></h1>
           <p></p>
-          <p>LuckyEggo is a evolution EXP calculator. It will tell you what you must do to get the maximum experience from your inventory! Simply follow the steps below to get started. Best of all, it's open source!</p>
-
-          <p><b>NOTE: If a pokemon cannot be evolved, (i.e., Beedrill), it will not show up in the auto-fill.</b>
+          <p>
+            LuckyEggo is a evolution EXP calculator. It will tell you what you must do to get the maximum experience from your inventory! Simply follow the steps below to get started. Best of all, it's open source!
           </p>
 
           <p>
-            <br>TODO: Make it look nicer, Eevee evolutions, clean up code. Make mobile version work.
+            <b>NOTE: If a pokemon cannot be evolved, (i.e., Beedrill), it will not show up in the auto-fill.</b>
           </p>
-          <ul>
-            <li>Pokemon: The name of a pokemon in your inventory.</li>
-            <li># in Inventory: How many of this type of pokemon are in your inventory?.</li>
-            <li>Candies owned: How many candies for this pokemon do you have?</li>
-            <li>Have Evolved: Do you have the evolved form of this pokemon?</li>
-            <li>Recycle Evolved: Do you want to transfer the evolved form for more candy?</li>
-            <li>Add another: Ad another row to add more entries.</li>
-            <li>Generate Instructions: When you're done filling this stuff out, you can generate a list of steps!</li>
-          </ul>
+
+          <p>
+            TODO: Make it look nicer, Eevee evolutions, clean up code. Make mobile version work.
+          </p>
         </div>
         <div class="col-md-6">
           <h1>Total XP: <span  id="totxp" class="totalxp"></span></h1>
@@ -82,10 +76,10 @@
       </div>
     </div>
   </div>
-  <div id="instructions" style="padding-top:10px" class="section hidden">
+  <div id="instructions" class="section hidden">
 
     <div class="container">
-      <h2>Instructions: <button id="runProgram" class="btn btn-success">Generate Instructions</button></h2>
+      <h2>Instructions: <button id="runProgram" class="btn btn-success" data-toggle="tooltip" title="When you're done filling this stuff out, you can generate a list of steps!">Generate Instructions</button></h2>
       <ol id="instlist">
       </ol>
     </div>
@@ -109,25 +103,25 @@
             </thead>
             <tbody id="rowBody">
               <tr id="input-0" class="tableRow">
-                <td data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-                  <input class="form-control" id="pok-0" type="text" value="Pidgey" placeholder="Pokemon">
+                <td>
+                  <input class="form-control" id="pok-0" type="text" value="Pidgey" placeholder="Pokemon" data-toggle="tooltip" title="The name of a pokemon in your inventory.">
                 </td>
                 <td>
-                  <input class="form-control" type="number" value="13" placeholder="Pokemon in Inventory">
+                  <input class="form-control" type="number" value="13" placeholder="Pokemon in Inventory" data-toggle="tooltip" title="How many of this type of pokemon are in your inventory?">
                 </td>
                 <td>
-                  <input class="form-control" type="number" value="23" placeholder="Candies Owned">
+                  <input class="form-control" type="number" value="23" placeholder="Candies Owned" data-toggle="tooltip" title="How many candies for this pokemon do you have?">
                 </td>
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
-                    <label class="btn btn-danger btn-block active check">
+                    <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
                       <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
                     </label>
                   </div>
                 </td>
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
-                    <label class="btn btn-danger btn-block active check">
+                    <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
                       <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
                     </label>
                   </div>
@@ -135,24 +129,24 @@
               </tr>
               <tr id="input-1" class="tableRow">
                 <td>
-                  <input class="form-control" id="pok-1" type="text" placeholder="Pokemon">
+                  <input class="form-control" id="pok-1" type="text" placeholder="Pokemon" data-toggle="tooltip" title="The name of a pokemon in your inventory.">
                 </td>
                 <td>
-                  <input class="form-control" type="number" placeholder="Pokemon in Inventory">
+                  <input class="form-control" type="number" placeholder="Pokemon in Inventory" data-toggle="tooltip" title="How many of this type of pokemon are in your inventory?">
                 </td>
                 <td>
-                  <input class="form-control" type="number" placeholder="Candies Owned">
+                  <input class="form-control" type="number" placeholder="Candies Owned" data-toggle="tooltip" title="How many candies for this pokemon do you have?">
                 </td>
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
-                    <label class="btn btn-danger btn-block active check">
+                    <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
                       <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
                     </label>
                   </div>
                 </td>
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
-                    <label class="btn btn-danger btn-block active check">
+                    <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
                       <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
                     </label>
                   </div>
@@ -160,7 +154,7 @@
               </tr>
             </tbody>
           </table>
-          <button id="addRow" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add Another</button>
+          <button id="addRow" class="btn btn-primary" data-toggle="tooltip" title="Add another row to add more entries."><span class="glyphicon glyphicon-plus"></span> Add Another</button>
 
         </div>
       </div>
