@@ -321,6 +321,8 @@ function addRow() {
   		$(a).find("input:eq(0)").val("").attr("id", "pok-" + counter);
   		$(a).find("input:eq(1)").val("");
   		$(a).find("input:eq(2)").val("");
+  		$(a).find("input:eq(3)").attr("checked", true);
+  		$(a).find("input:eq(4)").attr("checked", true);
   		$("#rowBody").append(a);
 
 		$("#pok-" + counter).bind('input', function() { 
