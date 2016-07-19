@@ -2,10 +2,6 @@ body {
   background-color: #fff8e1;
 }
 
-table {
-  max-width: 700px;
-}
-
 label.btn.btn-danger.check.active{
   background-color: green;
   border-color: green;
