@@ -20,12 +20,14 @@
   <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 
-  <meta name="title" content="LuckyEggos">
+  <meta name="title" content="LuckyEggo">
   <meta name="description" content="A comprehensive Pokemon EXP Calculator">
+  <meta property="og:description" content="A comprehensive Pokemon EXP Calculator" />
   <meta property="og:url" content="http://luckyeggo.com" />
-  <!--<meta property="og:image:width" content="1200" />-->
-  <!--<meta property="og:image:height" content="246" />-->
-  <meta property="og:image" content="http://i.imgur.com/q0yaPc9.png" />
+  <meta property="og:title" content="LuckyEggo" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta property="og:image" content="logo_720.png" />
 
   <!-- Google Analytics -->
   <script>
@@ -52,7 +54,7 @@
   <div class="section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <h1><img src="logo.png" height="64"></h1>
           <p></p>
           <p>
@@ -62,10 +64,10 @@
             <b>NOTE: If a pokemon cannot be evolved, (i.e., Beedrill), it will not show up in the auto-fill.</b>
           </p>
           <p>
-            TODO: Make it look nicer, Eevee evolutions, clean up code. Make mobile version work.
+            TODO: Eevee evolutions, clean up code.
           </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <h1>Total XP: <span  id="totxp" class="totalxp"></span></h1>
           <p class="line1">Without lucky egg: <span id="xpw"></span>
           </p>
@@ -76,16 +78,48 @@
           <p class="line4">Total Evolutions: <span id="evo"></span>
           </p>
         </div>
+        <div class="col-md-4">
+          <div id="instructions" class="section hidden">
+            <ol id="instlist">
+            </ol>
+          </div>
+
+
+        </div>
       </div>
     </div>
-  </div>
-  <div id="instructions" class="section hidden">
+
+    <div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title"> <span class="fa fa-gear"></span> Settings</h4>
+          </div>
+          <div class="modal-body">
+            add some buttons and stuff here
+            <br>current level
+            <br>current experience
+            <br>other options
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <div class="container">
-      <h2>Instructions: <button id="runProgram" class="btn btn-success" data-toggle="tooltip" title="When you're done filling this stuff out, you can generate a list of steps!">Generate Instructions</button></h2>
-      <ol id="instlist">
-      </ol>
+      <h1><button id="runProgram" class="btn btn-success btn-lg " data-toggle="tooltip" title="When you're done filling out one or more rows, you can generate a list of steps!">Generate Instructions <span class="fa fa-arrow-right"></span></button>
+        <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#settings">Settings <span class="fa fa-gear"></span></button>
+      </h1>
     </div>
+
   </div>
 
   <div class="section">
@@ -116,14 +150,20 @@
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
-                      <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
+                      <label autocomplete="off">
+                        <input type="checkbox" checked>
+                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
+                      </label>
                     </label>
                   </div>
                 </td>
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
-                      <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
+                      <label autocomplete="off">
+                        <input type="checkbox" checked>
+                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
+                      </label>
                     </label>
                   </div>
                 </td>
@@ -141,21 +181,28 @@
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
-                      <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
+                      <label autocomplete="off">
+                        <input type="checkbox" checked>
+                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
+                      </label>
                     </label>
                   </div>
                 </td>
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
-                      <input type="checkbox" checked autocomplete="off"><span class="fa fa-check-square-o"></span>
+                      <label autocomplete="off">
+                        <input type="checkbox" checked>
+                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
+                      </label>
                     </label>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-          <button id="addRow" class="btn btn-primary" data-toggle="tooltip" title="Add another row to add more entries."><span class="glyphicon glyphicon-plus"></span> Add Another</button>
+          <button id="addRow" class="btn btn-primary" data-toggle="tooltip" title="Add another row to add more entries.">Add Another <span class="fa fa-plus"></span>
+          </button>
 
         </div>
       </div>
@@ -163,7 +210,7 @@
   </div>
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
+      <p class="text-muted">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic Labs, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
     </div>
   </footer>
 
