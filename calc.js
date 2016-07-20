@@ -246,9 +246,11 @@ function runAll() {
 		var name = $(obj).find("input:eq(0)").val();
 		var inven = $(obj).find("input:eq(1)").val();
 		var own = $(obj).find("input:eq(2)").val();
-		var cc1 = $(obj).find("input:eq(3)").is(':checked');
-		var cc2 = $(obj).find("input:eq(4)").is(':checked');
+		var cc1 = $(obj).find("input:eq(3)").parent().hasClass('active');
+		var cc2 = $(obj).find("input:eq(4)").parent().hasClass('active');
 		console.log(cc1, cc2)
+		var a = $(obj).find("input:eq(3)").outerHTML;
+		console.log(a)
 		var ret = processRow(name, inven, own, cc1, cc2);
 		if (ret["status"] == -1) {
 			$(obj).css("background", "#DB4D4D");
@@ -321,8 +323,8 @@ function addRow() {
   		$(a).find("input:eq(0)").val("").attr("id", "pok-" + counter);
   		$(a).find("input:eq(1)").val("");
   		$(a).find("input:eq(2)").val("");
-  		$(a).find("input:eq(3)").attr("checked", true);
-  		$(a).find("input:eq(4)").attr("checked", true);
+  		$(a).find("input:eq(3)").attr("checked", true).parent().addClass("active");
+  		$(a).find("input:eq(4)").attr("checked", true).parent().addClass("active");
   		$("#rowBody").append(a);
 
 		$("#pok-" + counter).bind('input', function() { 
@@ -349,13 +351,13 @@ $( document ).ready(function() {
 		runAll();
 	});
 
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
-	addRow();
+	// addRow();
+	// addRow();
+	// addRow();
+	// addRow();
+	// addRow();
+	// addRow();
+	// addRow();
 	$('[data-toggle="tooltip"]').tooltip( {
 	});
 
