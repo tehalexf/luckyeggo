@@ -1,5 +1,6 @@
 body {
   background-color: #fff8e1;
+  padding-top: 20px;
 }
 
 label.btn.btn-danger.check.active{
@@ -9,4 +10,8 @@ label.btn.btn-danger.check.active{
 
 .btn-block {
   max-width: 130px;
+}
+
+footer {
+  padding-top: 1em;
 }
