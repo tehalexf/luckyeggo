@@ -3,13 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.2/js/tether.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether-drop/1.4.2/js/drop.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tether-tooltip/1.2.0/js/tooltip.min.js"></script>
+
+
+
+
+
   <script type="text/javascript" src="calc.js"></script>
 
   <title>LuckyEggo</title>
@@ -17,7 +22,9 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tether-tooltip/1.2.0/css/tooltip-theme-arrows.min.css">
-  <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <meta name="title" content="LuckyEggo">
@@ -54,7 +61,7 @@
   <div class="section">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" style="min-width:312px;">
           <h1><img src="logo.png" height="64"></h1>
           <p></p>
           <p>
@@ -63,11 +70,11 @@
           <p>
             <b>NOTE: If a pokemon cannot be evolved, (i.e., Beedrill), it will not show up in the auto-fill.</b>
           </p>
-          <p>
+<!--           <p>
             TODO: Eevee evolutions, clean up code.
-          </p>
+          </p> -->
         </div>
-        <div class="col-md-4">
+        <div style="padding-top:10px;"  class="col-md-4">
           <h1>Total XP: <span  id="totxp" class="totalxp"></span></h1>
           <p class="line1">Without lucky egg: <span id="xpw"></span>
           </p>
@@ -99,10 +106,11 @@
             <h4 class="modal-title"> <span class="fa fa-gear"></span> Settings</h4>
           </div>
           <div class="modal-body">
-            add some buttons and stuff here
+          Coming Soon!
+<!--             add some buttons and stuff here
             <br>current level
             <br>current experience
-            <br>other options
+            <br>other options -->
 
           </div>
           <div class="modal-footer">
@@ -130,16 +138,24 @@
             <thead>
               <tr>
                 <th>Pokemon</th>
+                <th style="min-width: 170px;">Actions</th>
                 <th># in Inventory</th>
                 <th>Candies Owned</th>
-                <th>Have Evolved?</th>
-                <th>Recycle Evolved?</th>
+                <th>Evo in Pokedex?</th>
+                <th>Recycle Evos?</th>
               </tr>
             </thead>
             <tbody id="rowBody">
               <tr id="input-0" class="tableRow">
                 <td>
                   <input class="form-control" id="pok-0" type="text" value="Pidgey" placeholder="Pokemon" data-toggle="tooltip" title="The name of a pokemon in your inventory.">
+                </td>
+                <td>
+                  <select data-toggle="tooltip" title="Either evolve this 'mon, use this 'mon as candy" class="form-control">
+                    <option>Evolve</option>
+                    <!-- <option>WIP FEATURE</option> -->
+                    <!-- <option>Keep as-is</option> -->
+                  </select>
                 </td>
                 <td>
                   <input class="form-control" type="number" value="13" placeholder="Pokemon in Inventory" data-toggle="tooltip" title="How many of this type of pokemon are in your inventory?">
@@ -150,9 +166,9 @@
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
-                      <label autocomplete="off">
-                        <input type="checkbox" checked>
-                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
+                      <label style="vertical-align: bottom; autocomplete="off">
+                        <input id="chk1-1" type="checkbox" checked>
+                          <i style="vertical-align: bottom; margin-bottom:-5px; font-size:20px" class="fa fa-check"></i><i class="fa fa-times" style="vertical-align: bottom; margin-bottom:-5px; font-size:20px; display:none"></i>
                       </label>
                     </label>
                   </div>
@@ -161,44 +177,14 @@
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
                       <label autocomplete="off">
-                        <input type="checkbox" checked>
-                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
+                        <input id="chk2-1" type="checkbox" checked>
+                           <i style="vertical-align: bottom; margin-bottom:-5px; font-size:20px" class="fa fa-check"></i><i class="fa fa-times" style="vertical-align: bottom; margin-bottom:-5px; font-size:20px; display:none"></i>
                       </label>
                     </label>
                   </div>
                 </td>
               </tr>
-              <tr id="input-1" class="tableRow">
-                <td>
-                  <input class="form-control" id="pok-1" type="text" placeholder="Pokemon" data-toggle="tooltip" title="The name of a pokemon in your inventory.">
-                </td>
-                <td>
-                  <input class="form-control" type="number" placeholder="Pokemon in Inventory" data-toggle="tooltip" title="How many of this type of pokemon are in your inventory?">
-                </td>
-                <td>
-                  <input class="form-control" type="number" placeholder="Candies Owned" data-toggle="tooltip" title="How many candies for this pokemon do you have?">
-                </td>
-                <td>
-                  <div class="btn-group btn-block" data-toggle="buttons">
-                    <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
-                      <label autocomplete="off">
-                        <input type="checkbox" checked>
-                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
-                      </label>
-                    </label>
-                  </div>
-                </td>
-                <td>
-                  <div class="btn-group btn-block" data-toggle="buttons">
-                    <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
-                      <label autocomplete="off">
-                        <input type="checkbox" checked>
-                        <span class="fa fa-check"></span><span class="fa fa-times" style="display:none"></span>
-                      </label>
-                    </label>
-                  </div>
-                </td>
-              </tr>
+            
             </tbody>
           </table>
           <button id="addRow" class="btn btn-primary" data-toggle="tooltip" title="Add another row to add more entries.">Add Another <span class="fa fa-plus"></span>
@@ -208,8 +194,13 @@
       </div>
     </div>
   </div>
-  <footer class="footer">
+    <div class="section">
     <div class="container">
+
+    </div>
+    </div>
+  <footer class="footer">
+    <div class="text-center container">
       <p class="text-muted">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic Labs, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
     </div>
   </footer>

@@ -159,8 +159,11 @@ function generateTransferString(num, pok) {
 	return "<li>Transfer <b>" + num + " " + pok + "s</b> to Willow.</li>" 
 }
 
-function generateEvolveString(num, pok) {
-	return "<li>Evolve <b>" + num + " " + pok + "s</b>.</li>" 
+function generateEvolveString(num, pok, exp, bonus) {
+	bonusStr = "";
+	if (bonus)
+		bonusStr = " (+500 Bonus)"
+	return "<li>Evolve <b>" + num + " " + pok + "s (+" + exp + " EXP)" + bonusStr + "</b>.</li>";
 }
 
 // Error codes:
@@ -168,6 +171,8 @@ function generateEvolveString(num, pok) {
 
 
 function processRow(name, count, candies, hasEvo, recycle) {
+	if (!name || name == "")
+		return {"status": -2}
 	var cost = pokeDict[name.toLowerCase()];
 	if(!cost || !count || !candies)
 		return {"status": -1}
@@ -246,11 +251,13 @@ function runAll() {
 		var name = $(obj).find("input:eq(0)").val();
 		var inven = $(obj).find("input:eq(1)").val();
 		var own = $(obj).find("input:eq(2)").val();
-		var cc1 = $(obj).find("input:eq(3)").parent().hasClass('active');
-		var cc2 = $(obj).find("input:eq(4)").parent().hasClass('active');
-		console.log(cc1, cc2)
-		var a = $(obj).find("input:eq(3)").outerHTML;
-		console.log(a)
+		var cc1 = $(obj).find("input:eq(3)").parent().parent().hasClass('active');
+		var cc2 = $(obj).find("input:eq(4)").parent().parent().hasClass('active');
+		// console.log(cc1, cc2)
+		// console.log("AAAA")
+		// console.log($(obj).find("input:eq(3)").parent().parent())
+		// var a = $(obj).find("input:eq(3)").outerHTML;
+
 		var ret = processRow(name, inven, own, cc1, cc2);
 		if (ret["status"] == -1) {
 			$(obj).css("background", "#DB4D4D");
@@ -270,15 +277,17 @@ function runAll() {
 					totalEvolutions += ret["pureEvos"] + ret["transferEvos"];
 					origExp += 500 * (ret["pureEvos"] + ret["transferEvos"]);
 					timeNeeded += 0.25 * (ret["pureEvos"] + ret["transferEvos"]);
-					postEggActionList.push(generateEvolveString(ret["pureEvos"] + ret["transferEvos"], name));
+					postEggActionList.push(generateEvolveString(ret["pureEvos"] + ret["transferEvos"], name, 500 * (ret["pureEvos"] + ret["transferEvos"]), ret["hasReward"]));
 
 				}
 		} else {
+				rewBonus = ret["hasReward"];
 				if(ret["pureEvos"]) {
 					totalEvolutions += ret["pureEvos"];
 					origExp += 500 * ret["pureEvos"];
 					timeNeeded += 0.25 * ret["pureEvos"];
-					postEggActionList.push(generateEvolveString(ret["pureEvos"], name));
+					postEggActionList.push(generateEvolveString(ret["pureEvos"], name, 500 * ret["pureEvos"], rewBonus));
+					rewBonus = 0;
 				}
 
 
@@ -292,7 +301,7 @@ function runAll() {
 					totalEvolutions += ret["transferEvos"];
 					origExp += 500 * ret["transferEvos"];
 					timeNeeded += 0.25 * ret["transferEvos"];
-					postEggActionList.push(generateEvolveString(ret["transferEvos"], name));
+					postEggActionList.push(generateEvolveString(ret["transferEvos"], name, 500 * ret["transferEvos"], rewBonus));
 				}
 
 		}
@@ -319,39 +328,79 @@ for (var a in pokeDict) {
 var counter = 2;
 
 function addRow() {
-	  		var a = $("#input-1").clone().attr("id", "input-" + counter);
+	  		var a = $("#input-0").clone().attr("id", "input-" + counter);
   		$(a).find("input:eq(0)").val("").attr("id", "pok-" + counter);
   		$(a).find("input:eq(1)").val("");
   		$(a).find("input:eq(2)").val("");
-  		$(a).find("input:eq(3)").attr("checked", true).parent().addClass("active");
-  		$(a).find("input:eq(4)").attr("checked", true).parent().addClass("active");
+  		$(a).find("input:eq(3)").attr("id", "chk1-" + counter).attr("checked", true).parent().addClass("active");
+  		$(a).find("input:eq(4)").attr("id", "chk2-" + counter).attr("checked", true).parent().addClass("active");
   		$("#rowBody").append(a);
+
+		$("#chk1-" + counter).parent().parent().change(function(e) { 
+			console.log($(e.target).hasClass("active"));
+    		// if ($(e.target).hasClass("active")) {
+    			$(e.target).find("i:eq(0)").toggle();
+    			$(e.target).find("i:eq(1)").toggle();
+    		// }
+		});
+
+		$("#chk2-" + counter).parent().parent().change(function(e) { 
+			console.log($(e.target).hasClass("active"));
+    		// if ($(e.target).hasClass("active")) {
+    			$(e.target).find("i:eq(0)").toggle();
+    			$(e.target).find("i:eq(1)").toggle();
+    		// }
+		});
 
 		$("#pok-" + counter).bind('input', function() { 
 			// console.log("AAAA");
-			var self = this;
-		    if (self.timer)
-		        clearTimeout(self.timer);
+			// var self = this;
+		 //    if (self.timer)
+		 //        clearTimeout(self.timer);
 
-		    self.timer = setTimeout(function ()
-		    {
-		        self.timer = null;
-		        runAll();
-		    }, 500);
-	    	// throttle(runAll, 500);
+		 //    self.timer = setTimeout(function ()
+		 //    {
+		 //        self.timer = null;
+		 //        runAll();
+		 //    }, 500);
+
 		});
 
 
 	  	$("#pok-" + counter++ ).autocomplete({
 	  		source: pokeList 
 		});
+
+		$("body").tooltip({
+    		selector: '[data-toggle="tooltip"]',
+    		trigger : 'hover',
+    		delay: {show: 300}
+		});
+
 }
 $( document ).ready(function() {
 	$("#runProgram").click(function() { 
 		runAll();
 	});
 
-	// addRow();
+
+		$("#chk1-1").parent().parent().change(function(e) { 
+			console.log($(e.target).hasClass("active"));
+    		// if ($(e.target).hasClass("active")) {
+    			$(e.target).find("i:eq(0)").toggle();
+    			$(e.target).find("i:eq(1)").toggle();
+    		// }
+		});
+
+		$("#chk2-1").parent().parent().change(function(e) { 
+			console.log($(e.target).hasClass("active"));
+    		// if ($(e.target).hasClass("active")) {
+    			$(e.target).find("i:eq(0)").toggle();
+    			$(e.target).find("i:eq(1)").toggle();
+    		// }
+		});
+
+	addRow();
 	// addRow();
 	// addRow();
 	// addRow();
@@ -359,6 +408,8 @@ $( document ).ready(function() {
 	// addRow();
 	// addRow();
 	$('[data-toggle="tooltip"]').tooltip( {
+		trigger : 'hover',
+		delay: {show: 300}
 	});
 
 
