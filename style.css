@@ -73,12 +73,12 @@ body {
 }
 
 label.btn.btn-danger.check.active{
-  background-color: green;
-  border-color: green;
+  background-color: #5CB85C;
+  border-color: #5CB85C;
 }
 
 .btn-block {
-  max-width: 130px;
+  max-width: 100px;
 }
 
 footer {

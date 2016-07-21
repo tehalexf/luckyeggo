@@ -34,7 +34,7 @@
   <meta property="og:title" content="LuckyEggo" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="720" />
-  <meta property="og:image" content="logo_720.png" />
+  <meta property="og:image" content="http://luckyeggo.com/logo_720.png" />
 
   <!-- Google Analytics -->
   <script>
@@ -70,11 +70,11 @@
           <p>
             <b>NOTE: If a pokemon cannot be evolved, (i.e., Beedrill), it will not show up in the auto-fill.</b>
           </p>
-<!--           <p>
+          <!--           <p>
             TODO: Eevee evolutions, clean up code.
           </p> -->
         </div>
-        <div style="padding-top:10px;"  class="col-md-4">
+        <div style="padding-top:10px;" class="col-md-4">
           <h1>Total XP: <span  id="totxp" class="totalxp"></span></h1>
           <p class="line1">Without lucky egg: <span id="xpw"></span>
           </p>
@@ -106,15 +106,32 @@
             <h4 class="modal-title"> <span class="fa fa-gear"></span> Settings</h4>
           </div>
           <div class="modal-body">
-          Coming Soon!
-<!--             add some buttons and stuff here
+            Coming soon!
+            <!--             add some buttons and stuff here
             <br>current level
             <br>current experience
-            <br>other options -->
+            <br>other options
+
+            <div class="input-group">
+              <span class="input-group-addon">Current Level</span>
+              <input type="number" class="form-control" placeholder="Level">
+              <span class="input-group-btn">
+                <button class="btn btn-info" type="button">Save <span class="fa fa-save"></span></button>
+              </span>
+            </div>
+            <br >
+            <div class="input-group">
+              <span class="input-group-addon">Current Experience Level</span>
+              <input type="number" class="form-control" placeholder="Experience">
+              <span class="input-group-btn">
+                <button class="btn btn-info" type="button">Save <span class="fa fa-save"></span></button>
+              </span>
+            </div>
+-->
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -123,8 +140,8 @@
 
 
     <div class="container">
-      <h1><button id="runProgram" class="btn btn-success btn-lg " data-toggle="tooltip" title="When you're done filling out one or more rows, you can generate a list of steps!">Generate Instructions <span class="fa fa-arrow-right"></span></button>
-        <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#settings">Settings <span class="fa fa-gear"></span></button>
+      <h1><button id="runProgram" class="btn btn-success btn-lg" data-toggle="tooltip" title="When you're done filling out one or more rows, you can generate a list of steps!">Generate Instructions <span class="fa fa-arrow-right"></span></button>
+        <button class="btn btn-warning btn-lg" type="button" data-toggle="modal" data-target="#settings">Settings <span class="fa fa-gear"></span></button>
       </h1>
     </div>
 
@@ -166,9 +183,9 @@
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you have the evolved form of this pokemon?">
-                      <label style="vertical-align: bottom; autocomplete="off">
+                      <label style="vertical-align: bottom;" autocomplete="off">
                         <input id="chk1-1" type="checkbox" checked>
-                          <i style="vertical-align: bottom; margin-bottom:-5px; font-size:20px" class="fa fa-check"></i><i class="fa fa-times" style="vertical-align: bottom; margin-bottom:-5px; font-size:20px; display:none"></i>
+                        <i style="vertical-align: bottom; margin-bottom:-5px; font-size:20px" class="fa fa-check"></i><i class="fa fa-times" style="vertical-align: bottom; margin-bottom:-5px; font-size:20px; display:none"></i>
                       </label>
                     </label>
                   </div>
@@ -176,32 +193,32 @@
                 <td>
                   <div class="btn-group btn-block" data-toggle="buttons">
                     <label class="btn btn-danger btn-block active check" data-toggle="tooltip" title="Do you want to transfer the evolved form for more candy?">
-                      <label autocomplete="off">
+                      <label style="vertical-align: bottom;" autocomplete="off ">
                         <input id="chk2-1" type="checkbox" checked>
-                           <i style="vertical-align: bottom; margin-bottom:-5px; font-size:20px" class="fa fa-check"></i><i class="fa fa-times" style="vertical-align: bottom; margin-bottom:-5px; font-size:20px; display:none"></i>
+                        <i style="vertical-align: bottom; margin-bottom:-5px; font-size:20px" class="fa fa-check"></i><i class="fa fa-times" style="vertical-align: bottom; margin-bottom:-5px; font-size:20px; display:none"></i>
                       </label>
                     </label>
                   </div>
                 </td>
               </tr>
-            
+
             </tbody>
           </table>
-          <button id="addRow" class="btn btn-primary" data-toggle="tooltip" title="Add another row to add more entries.">Add Another <span class="fa fa-plus"></span>
+          <button id="addRow" class="btn btn-info" data-toggle="tooltip" title="Add another row to add more entries.">Add Another <span class="fa fa-plus"></span>
           </button>
 
         </div>
       </div>
     </div>
   </div>
-    <div class="section">
+  <div class="section">
     <div class="container">
 
     </div>
-    </div>
+  </div>
   <footer class="footer">
     <div class="text-center container">
-      <p class="text-muted">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic Labs, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
+      <p class="text-muted ">Created by <a href="http://github.com/tehalexf">tehalexf</a> and <a href="http://github.com/thinkaliker">thinkaliker</a>. Not affiliated with Niantic Labs, Nintendo, or The Pokemon Company. Contribute on <a href="https://github.com/tehalexf/luckyeggo">Github</a>.</p>
     </div>
   </footer>
 
